@@ -11,4 +11,7 @@ def rgb_to_hex(r, g, b):
     return f"#{r:02x}{g:02x}{b:02x}"
 
 def hex_to_rgb(hex):
-    return (0,0,0)
+    r = int(hex[:2], 16)
+    g = int(hex[2:4], 16)
+    b = int(hex[4:], 16)
+    return (r, g, b)
