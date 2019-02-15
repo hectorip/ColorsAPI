@@ -1,13 +1,20 @@
 # Colors API
 
 
-Utilities for Color lovers.
+Utilities for Color lovers. Provides basic utitilities for working with rgb
+colors and named colors.
 
-# Main functions
+This project could be used in 3 ways:
 
-- /random -> Random Color
-- /complimentary -> Receives a color and returns the complimentary
-- /color_scheme -> Returns a color scheme
+1. As a library for your project.
+2. As a command line utility
+3. As a Rest API at https://colors.hectorip.com
 
 
-Developed in Python with hug and TDD.
+- *random* -> Random Color in rgb
+- *complimentary* -> Receives a color and returns the complimentary
+- *color_scheme* -> Returns a color scheme
+
+## About
+
+Developed in Python for fun, with [Hug](https://python-hug.com) and [TDD](https://tdd.com).
