@@ -6,7 +6,7 @@ def random():
     """Returns a random color."""
     (r,g,b) = ccolors.random_rgb()
     return {
-        "hex": "This is a random color",
+        "hex": f"#{r:02x}{g:02x}{b:02x}",
         "rgb": {
             "r": r,
             "g": g,
