@@ -18,3 +18,17 @@ This project could be used in 3 ways:
 ## About
 
 Developed in Python for fun, with [Hug](https://python-hug.com) and [TDD](https://tdd.com).
+
+## Local install
+
+1. Clone this repo and move to the generated folder.
+2. (Optional but recommended) Create and activate a [virtualenv](https://docs.python-guide.org/dev/virtualenvs/).
+3. Install the requirments  with `pip install -r requirements.txt`
+4. (Optional) Run the tests. The test suite was written using *unittest*. Simply run:
+```bash
+python -m tests.ccolors_test
+```
+5. Init *hug*:
+```
+hug -f main.py
+```
