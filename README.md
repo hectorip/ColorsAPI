@@ -17,7 +17,7 @@ This project could be used in 3 ways:
 
 ## About
 
-Developed in Python for fun, with [Hug](https://python-hug.com) and [TDD](https://tdd.com).
+Developed in Python for fun, with [Hug](http://www.hug.rest) and [TDD](https://hackernoon.com/what-is-so-wrong-with-tdd-aa60112aadd0).
 
 ## Local install
 
@@ -28,7 +28,9 @@ Developed in Python for fun, with [Hug](https://python-hug.com) and [TDD](https:
 ```bash
 python -m tests.ccolors_test
 ```
-5. Init *hug*:
+5a. [Run as Web API] Init *hug*:
 ```
 hug -f main.py
 ```
+5b. [Run as CLI]
+5c. [Use as a library]
