@@ -28,9 +28,11 @@ Developed in Python for fun, with [Hug](http://www.hug.rest) and [TDD](https://h
 ```bash
 python -m tests.ccolors_test
 ```
-5a. [Run as Web API] Init *hug*:
+
+## Run
+a. [Run as Web API] Init *hug*:
 ```
 hug -f main.py
 ```
-5b. [Run as CLI]
-5c. [Use as a library]
+b. [Run as CLI]
+c. [Use as a library]
