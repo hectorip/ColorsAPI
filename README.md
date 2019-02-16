@@ -30,9 +30,9 @@ python -m tests.ccolors_test
 ```
 
 ## Run
-a. [Run as Web API] Init *hug*:
+- [Run as Web API] Init *hug*:
 ```
 hug -f main.py
 ```
-b. [Run as CLI]
-c. [Use as a library]
+- [Run as CLI]
+- [Use as a library]
