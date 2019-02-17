@@ -1,7 +1,7 @@
 """Colors API, utilities for color lovers"""
 import hug
 from ccolors import random_rgb, rgb_to_hex, hex_to_rgb
-from ccolors import complimentary as ccomplimentary
+from ccolors import complimentary as ccomplimentary  # Didn't know imports could be aliased
 @hug.get()
 
 def random():
@@ -17,6 +17,7 @@ def random():
     }
 
 @hug.get(examples="r=100&g=200&b=55")
+# Using Python type annotations
 def to_hex(r: hug.types.in_range(0, 256), g: hug.types.in_range(0, 256), b: hug.types.in_range(0, 256)):
     return {"hex": rgb_to_hex(r, g, b)}
 
@@ -45,6 +46,7 @@ def complimentary(r: hug.types.in_range(0, 256), g: hug.types.in_range(0, 256), 
     }
 
 
+# TODO: This function overwrites the previous implementation
 @hug.get(examples=("hex=FF0000", "hex=000"))
 def complimentary(hex: hug.types.text):
     rgb = hex_to_rgb(hex)
