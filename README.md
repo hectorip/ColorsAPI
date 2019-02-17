@@ -14,6 +14,8 @@ This project could be used in 3 ways:
 - *random* -> Random Color in rgb
 - *complimentary* -> Receives a color and returns the complimentary
 - *color_scheme* -> Returns a color scheme
+- *to_rgb* -> Transforms a hexadecimal color to a RGB color
+- *to_hex* -> Transforms a RGB color to a hexadecimal string
 
 ## About
 
