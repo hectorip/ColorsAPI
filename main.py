@@ -1,6 +1,6 @@
 """Colors API, utilities for color lovers"""
 import hug
-from ccolors import random_rgb, rgb_to_hex
+from ccolors import random_rgb, rgb_to_hex, hex_to_rgb
 from ccolors import complimentary as ccomplimentary
 @hug.get()
 
@@ -33,7 +33,7 @@ def to_rgb(hex: hug.types.text):
     }
 
 
-@hug.get(examples="r=100&g=200&b=55")
+@hug.get(examples=("r=100&g=200&b=55"))
 def complimentary(r: hug.types.in_range(0, 256), g: hug.types.in_range(0, 256), b: hug.types.in_range(0, 256)):
     (rc, gc, bc) = ccomplimentary((r, g, b))
     return {
@@ -42,4 +42,14 @@ def complimentary(r: hug.types.in_range(0, 256), g: hug.types.in_range(0, 256), 
             "g": gc,
             "b": bc,
         }
+    }
+
+
+@hug.get(examples=("hex=FF0000", "hex=000"))
+def complimentary(hex: hug.types.text):
+    rgb = hex_to_rgb(hex)
+    (r, g, b) = ccomplimentary(rgb)
+    hex_c = rgb_to_hex(r, g, b)
+    return {
+        "hex": hex_c
     }
