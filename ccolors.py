@@ -21,3 +21,9 @@ def hex_to_rgb(hex):
         g = int(hex[1]*2, 16)
         b = int(hex[2]*2, 16)
     return (r, g, b)
+
+def complimentary(color):
+    r = 255 - color[0]
+    g = 255 - color[1]
+    b = 255 - color[2]
+    return (r, g, b)
