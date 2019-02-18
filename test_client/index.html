@@ -10,16 +10,33 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <style>
+        .color-container{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <h1>Testing Colors API</h1>
 
     <h2>Complimentary</h2>
-    <input type="text" default="000">
-    <div id="main_color"></div>
-    <div id="result_color"></div>
+    <div id="app">
+        <input type="text" v-model="mainColor">
+        <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor}'></div>
+        <div class="color-container" id="result_color"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <script>
-        // HEre will be the necessary to test
+        let app = new Vue({
+            el: "#app",
+            data: {
+                "mainColor": "#000",
+            }
+        })
     </script>
 </body>
 </html>
