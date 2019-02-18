@@ -32,6 +32,7 @@
                     <label for="operationField"> Operación</label>
                     <select name="operationField" v-model="selectedOperation">
                         <option value="complimentary">Complementario</option>
+                        <option value="color-scheme">Esquema de colores</option>
                     </select>
                 </div>
                 <!-- <div class="column column-10"> Hello</div> -->
@@ -45,12 +46,21 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
         let app = new Vue({
             el: "#app",
             data: {
                 "mainColor": "#000",
+                "selectedOperation": "complimentary",
+            },
+            watch: {
+                "selectedOperation": function(selected){
+                    axios.get(`http://localhost:8000/${selected}?hex=${this.mainColor}`)
+                    .then((r) => { console.log(r) })
+                    console.log("SELECTED", selected);
+                }
             }
         })
     </script>
