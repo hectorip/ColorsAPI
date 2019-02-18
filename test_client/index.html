@@ -38,7 +38,7 @@
                 <!-- <div class="column column-10"> Hello</div> -->
                 <div class="column column-40">
                     <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor}'></div>
-                    <div class="color-container" id="result_color"></div>
+                    <div class="color-container" id="result_color" v-bind:style='{"background-color": activeColor}'></div>
                 </div>
             </div>
 
@@ -53,6 +53,7 @@
             el: "#app",
             data: {
                 "mainColor": "#000",
+                "activeColor": "#FFF",
                 "selectedOperation": "complimentary",
             },
             watch: {
@@ -60,7 +61,10 @@
                     const color = this.mainColor.slice(1)
                     console.log(color)
                     axios.get(`http://localhost:8000/${selected}?hex=${color}`)
-                    .then((r) => { console.log(r) })
+                    .then((r) => {
+                        let data = r.data;
+                        this.activeColor = data.hex;
+                    })
                     console.log("SELECTED", selected);
                 }
             }
