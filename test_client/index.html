@@ -15,17 +15,29 @@
             width: 100px;
             height: 100px;
             display: inline-block;
+            border: 1px solid black;
         }
     </style>
 </head>
 <body>
-    <h1>Testing Colors API</h1>
+    <div class="container">
+        <h1>Colors API</h1>
+        <p> Testing the Color functions.</p>
 
-    <h2>Complimentary</h2>
-    <div id="app">
-        <input type="text" v-model="mainColor">
-        <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor}'></div>
-        <div class="color-container" id="result_color"></div>
+        <div id="app">
+            <div class="row">
+                <div class="column column-50">
+                    <label for="mainColorField">Name</label>
+                    <input type="text" name="mainColorField" v-model="mainColor">
+                </div>
+                <!-- <div class="column column-10"> Hello</div> -->
+                <div class="column column-40">
+                    <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor}'></div>
+                    <div class="color-container" id="result_color"></div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
