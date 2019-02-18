@@ -57,7 +57,9 @@
             },
             watch: {
                 "selectedOperation": function(selected){
-                    axios.get(`http://localhost:8000/${selected}?hex=${this.mainColor}`)
+                    const color = this.mainColor.slice(1)
+                    console.log(color)
+                    axios.get(`http://localhost:8000/${selected}?hex=${color}`)
                     .then((r) => { console.log(r) })
                     console.log("SELECTED", selected);
                 }

@@ -1,9 +1,13 @@
 """Colors API, utilities for color lovers"""
 import hug
+from hug.middleware import CORSMiddleware
 from ccolors import random_rgb, rgb_to_hex, hex_to_rgb
 from ccolors import complimentary as ccomplimentary  # Didn't know imports could be aliased
-@hug.get()
 
+api = hug.API(__name__)
+api.http.add_middleware(CORSMiddleware(api))
+
+@hug.get()
 def random():
     """Returns a random color."""
     (r,g,b) = random_rgb()
