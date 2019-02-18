@@ -22,13 +22,17 @@
 <body>
     <div class="container">
         <h1>Colors API</h1>
-        <p> Testing the Color functions.</p>
+        <p> Probando la API de Colores en la versión web.</p>
 
         <div id="app">
             <div class="row">
                 <div class="column column-50">
-                    <label for="mainColorField">Name</label>
+                    <label for="mainColorField">Color principal</label>
                     <input type="text" name="mainColorField" v-model="mainColor">
+                    <label for="operationField"> Operación</label>
+                    <select name="operationField" v-model="selectedOperation">
+                        <option value="complimentary">Complementario</option>
+                    </select>
                 </div>
                 <!-- <div class="column column-10"> Hello</div> -->
                 <div class="column column-40">
