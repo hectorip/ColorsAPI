@@ -16,6 +16,8 @@
             height: 100px;
             display: inline-block;
             border: 1px solid black;
+            font-weight: 800;
+            text-align: center;
         }
     </style>
 </head>
@@ -37,8 +39,8 @@
                 </div>
                 <!-- <div class="column column-10"> Hello</div> -->
                 <div class="column column-40">
-                    <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor}'></div>
-                    <div class="color-container" id="result_color" v-bind:style='{"background-color": activeColor}'></div>
+                    <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor}'> {{ mainColor }}</div>
+                    <div class="color-container" id="result_color" v-bind:style='{"background-color": activeColor}'> {{ activeColor }}</div>
                 </div>
             </div>
 
@@ -59,13 +61,20 @@
             watch: {
                 "selectedOperation": function(selected){
                     const color = this.mainColor.slice(1)
-                    console.log(color)
                     axios.get(`http://localhost:8000/${selected}?hex=${color}`)
                     .then((r) => {
                         let data = r.data;
                         this.activeColor = data.hex;
                     })
-                    console.log("SELECTED", selected);
+                },
+                "mainColor": function(){
+                    if(this.mainColor.length < 4) return; // "debouncing"
+                    const color = this.mainColor.slice(1)
+                    axios.get(`http://localhost:8000/${this.selectedOperation}?hex=${color}`)
+                    .then((r) => {
+                        let data = r.data;
+                        this.activeColor = data.hex;
+                    })
                 }
             }
         })
