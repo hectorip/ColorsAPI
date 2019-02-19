@@ -2,7 +2,7 @@
 import hug
 from hug.middleware import CORSMiddleware
 from ccolors import random_rgb, rgb_to_hex, hex_to_rgb
-from ccolors import complimentary as ccomplimentary  # Didn't know imports could be aliased
+from ccolors import complementary as ccomplementary  # Didn't know imports could be aliased
 
 api = hug.API(__name__)
 api.http.add_middleware(CORSMiddleware(api))
@@ -39,8 +39,8 @@ def to_rgb(hex: hug.types.text):
 
 
 @hug.get(examples=("r=100&g=200&b=55"))
-def complimentary(r: hug.types.in_range(0, 256), g: hug.types.in_range(0, 256), b: hug.types.in_range(0, 256)):
-    (rc, gc, bc) = ccomplimentary((r, g, b))
+def complementary(r: hug.types.in_range(0, 256), g: hug.types.in_range(0, 256), b: hug.types.in_range(0, 256)):
+    (rc, gc, bc) = ccomplementary((r, g, b))
     return {
         "rgb": {
             "r": rc,
@@ -52,9 +52,9 @@ def complimentary(r: hug.types.in_range(0, 256), g: hug.types.in_range(0, 256), 
 
 # TODO: This function overwrites the previous implementation
 @hug.get(examples=("hex=FF0000", "hex=000"))
-def complimentary(hex: hug.types.text):
+def complementary(hex: hug.types.text):
     rgb = hex_to_rgb(hex)
-    (r, g, b) = ccomplimentary(rgb)
+    (r, g, b) = ccomplementary(rgb)
     hex_c = rgb_to_hex(r, g, b)
     return {
         "hex": hex_c

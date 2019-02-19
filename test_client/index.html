@@ -33,14 +33,14 @@
                     <input type="text" name="mainColorField" v-model="mainColor">
                     <label for="operationField"> Operación</label>
                     <select name="operationField" v-model="selectedOperation">
-                        <option value="complimentary">Complementario</option>
+                        <option value="complementary">Complementario</option>
                         <option value="color-scheme">Esquema de colores</option>
                     </select>
                 </div>
                 <!-- <div class="column column-10"> Hello</div> -->
                 <div class="column column-40">
-                    <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor}'> {{ mainColor }}</div>
-                    <div class="color-container" id="result_color" v-bind:style='{"background-color": activeColor}'> {{ activeColor }}</div>
+                    <div class="color-container" id="main_color" v-bind:style='{"background-color": mainColor, "color": activeColor}'> {{ mainColor }}</div>
+                    <div class="color-container" id="result_color" v-bind:style='{"background-color": activeColor, "color": mainColor}'> {{ activeColor }}</div>
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
             data: {
                 "mainColor": "#000",
                 "activeColor": "#FFF",
-                "selectedOperation": "complimentary",
+                "selectedOperation": "complementary",
             },
             watch: {
                 "selectedOperation": function(selected){
