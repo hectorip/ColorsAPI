@@ -22,8 +22,24 @@ def hex_to_rgb(hex):
         b = int(hex[2]*2, 16)
     return (r, g, b)
 
+
 def complementary(color):
     r = 255 - color[0]
     g = 255 - color[1]
     b = 255 - color[2]
     return (r, g, b)
+
+
+def generate_scheme(color: str):
+    rgb = hex_to_rgb(color)
+    color_scheme = [[0,0,0] for x in range(8)]
+    max_distance = 0
+    distances = [] 
+
+    for d in range(3):
+        component = rgb[d]
+        jump = round(component/8)
+        for i in range(1, 8):
+            color_scheme[i][d] = color_scheme[i-1][d] + jump
+    return color_scheme
+
