@@ -29,9 +29,9 @@ class CcolorsTest(unittest.TestCase):
         (r, g, b) = ccolors.hex_to_rgb(hex)
         self.assertEqual((r, g, b), (0, 0, 255))
 
-    def test_complimentary(self):
+    def test_complementary(self):
         white = (255, 255, 255)
-        black = ccolors.complimentary(white)
+        black = ccolors.complementary(white)
 
         self.assertEqual(black, (0, 0, 0))
 
