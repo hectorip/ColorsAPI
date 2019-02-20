@@ -67,5 +67,9 @@ def complementary_hex(hex: hug.types.text):
 
 @hug.get('/scheme', examples=("hex=FF0000", "hex=000"), versions=2)
 @hug.local()
-def scheme(hex: hug.types.text):
+@hug.cli()
+def scheme(hex: hug.types.length(3, 6), hug_timer=3):
     return generate_scheme(hex)
+
+if __name__ == '__main__':
+    scheme.interface.cli()

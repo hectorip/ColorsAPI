@@ -41,5 +41,4 @@ def generate_scheme(color: str):
         jump = round(component/8)
         for i in range(1, 8):
             color_scheme[i][d] = color_scheme[i-1][d] + jump
-    return color_scheme
-
+    return [rgb_to_hex(*c) for c in color_scheme]
